@@ -15,7 +15,7 @@ after_success:
   - docker build -t zolingen/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # take those images and push them to docker hub -poging 4 voor upload multi-client
+  # take those images and push them to docker hub -poging 5 voor upload plus mem
   - docker push zolingen/multi-client
   - docker push zolingen/multi-nginx
   - docker push zolingen/multi-server
