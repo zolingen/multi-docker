@@ -20,3 +20,16 @@ after_success:
   - docker push zolingen/multi-nginx
   - docker push zolingen/multi-server
   - docker push zolingen/multi-worker
+
+  deploy:
+    provider: elasticbeanstalk
+    region: us-east-2
+    app : multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-east-2-643932763253
+    bucket_path: docker-multi
+    on:
+      branch: master
+    acces_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secure: AWS$_SECRET_KEY  
